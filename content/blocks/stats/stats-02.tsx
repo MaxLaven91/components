@@ -71,7 +71,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const chartConfigNegative = {
-  value: { label: "Value", color: "hsl(0 72% 51%)" },
+  value: { label: "Value", color: "var(--destructive)" },
 } satisfies ChartConfig;
 
 export default function Stats02() {
