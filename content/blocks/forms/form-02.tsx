@@ -49,8 +49,8 @@ export default function Form02() {
 
           <div className="space-y-4">
             <h3 className="text-sm font-medium">Notifications</h3>
-            <div className="flex items-center justify-between">
-              <Label htmlFor="form02-email-notif" className="flex flex-col gap-1">
+            <div className="flex items-start justify-between gap-4">
+              <Label htmlFor="form02-email-notif" className="flex flex-col gap-1 text-left">
                 <span>Email notifications</span>
                 <span className="font-normal text-muted-foreground">
                   Receive emails about account activity
@@ -58,8 +58,8 @@ export default function Form02() {
               </Label>
               <Switch id="form02-email-notif" defaultChecked />
             </div>
-            <div className="flex items-center justify-between">
-              <Label htmlFor="form02-marketing" className="flex flex-col gap-1">
+            <div className="flex items-start justify-between gap-4">
+              <Label htmlFor="form02-marketing" className="flex flex-col gap-1 text-left">
                 <span>Marketing emails</span>
                 <span className="font-normal text-muted-foreground">
                   Receive emails about new features and updates
