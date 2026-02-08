@@ -22,11 +22,7 @@ export default function Home() {
             <a href="#categories">Browse components</a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a
-              href="https://github.com/MaxLaven91/panes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://github.com/MaxLaven91/panes" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </Button>
@@ -61,7 +57,7 @@ export default function Home() {
               const count = blocks.filter((b) => b.category === category.id).length;
               return (
                 <Link key={category.id} href={`/${category.id}`}>
-                  <Card className="transition-colors hover:bg-muted/50">
+                  <Card className="transition-all duration-150 ease-out hover:-translate-y-0.5 hover:bg-muted/50 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <CardTitle className="text-lg">{category.label}</CardTitle>

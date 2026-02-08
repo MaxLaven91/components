@@ -43,7 +43,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {categoryBlocks.map((block) => (
           <Link key={block.id} href={`/${categoryId}/${block.id}`}>
-            <Card className="transition-colors hover:bg-muted/50">
+            <Card className="transition-all duration-150 ease-out hover:-translate-y-0.5 hover:bg-muted/50 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
               <CardHeader>
                 <CardTitle className="text-base">{block.name}</CardTitle>
                 <CardDescription>{block.description}</CardDescription>

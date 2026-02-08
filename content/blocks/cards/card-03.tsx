@@ -1,7 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,35 @@ const features = [
   "Team collaboration",
 ];
 
+function AnimatedPrice({ value }: { value: number }) {
+  const [display, setDisplay] = useState(value);
+  const [animating, setAnimating] = useState(false);
+  const prevValue = useRef(value);
+
+  useEffect(() => {
+    if (prevValue.current === value) return;
+    prevValue.current = value;
+    setAnimating(true);
+    const timer = setTimeout(() => {
+      setDisplay(value);
+      setAnimating(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [value]);
+
+  return (
+    <span
+      className="inline-block transition-all duration-100 ease-out tabular-nums motion-reduce:transition-none"
+      style={{
+        opacity: animating ? 0 : 1,
+        transform: animating ? "translateY(-4px)" : "translateY(0)",
+      }}
+    >
+      ${display}
+    </span>
+  );
+}
+
 export default function Card03() {
   const [annual, setAnnual] = useState(false);
   const price = annual ? 19 : 24;
@@ -27,13 +56,21 @@ export default function Card03() {
       <CardHeader>
         <CardTitle className="text-lg">Pro Plan</CardTitle>
         <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold tracking-tight tabular-nums">${price}</span>
-          <span className="text-muted-foreground">/{annual ? "mo" : "mo"}</span>
+          <span className="text-4xl font-bold tracking-tight">
+            <AnimatedPrice value={price} />
+          </span>
+          <span className="text-muted-foreground">/mo</span>
         </div>
         <div className="flex items-center gap-2 pt-1">
           <Switch id="card03-billing" checked={annual} onCheckedChange={setAnnual} />
           <Label htmlFor="card03-billing" className="text-sm text-muted-foreground">
-            Annual billing {annual && <span className="text-primary">(save 20%)</span>}
+            Annual billing{" "}
+            <span
+              className="inline-block transition-opacity duration-150 ease-out motion-reduce:transition-none"
+              style={{ opacity: annual ? 1 : 0 }}
+            >
+              <span className="text-primary">(save 20%)</span>
+            </span>
           </Label>
         </div>
       </CardHeader>
