@@ -23,16 +23,16 @@ export default function Dialog01() {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-destructive/10">
+          <div className="flex size-12 items-center justify-center rounded-full bg-destructive/10">
             <TriangleAlert className="size-6 text-destructive" />
           </div>
-          <AlertDialogTitle className="text-center">Are you sure?</AlertDialogTitle>
-          <AlertDialogDescription className="text-center">
+          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogDescription>
             This will permanently delete the project and all of its data. This action cannot be
             undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter className="sm:justify-center">
+        <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction className="bg-destructive text-white hover:bg-destructive/90">
             Delete

@@ -105,15 +105,15 @@ export default function Stats02() {
               <AreaChart data={stat.data} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                 <defs>
                   <linearGradient id={`fill-${stat.title}`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="var(--color-value)" stopOpacity={0.3} />
-                    <stop offset="100%" stopColor="var(--color-value)" stopOpacity={0} />
+                    <stop offset="0%" stopColor="var(--color-value)" stopOpacity={0.5} />
+                    <stop offset="100%" stopColor="var(--color-value)" stopOpacity={0.05} />
                   </linearGradient>
                 </defs>
                 <Area
                   type="monotone"
                   dataKey="value"
                   stroke="var(--color-value)"
-                  strokeWidth={1.5}
+                  strokeWidth={2}
                   fill={`url(#fill-${stat.title})`}
                   dot={false}
                   isAnimationActive={false}

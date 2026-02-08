@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 export default function Card01() {
   return (
     <Card className="w-full max-w-xs overflow-hidden">
-      <div className="aspect-square bg-muted" />
+      <div className="aspect-video bg-muted" />
       <CardContent className="pt-4">
         <div className="flex items-start justify-between gap-2">
           <div>
