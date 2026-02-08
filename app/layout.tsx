@@ -13,9 +13,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Panes — Clean, modern UI components",
+  title: {
+    default: "Panes — Clean, modern UI components",
+    template: "%s — Panes",
+  },
   description:
     "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
+  metadataBase: new URL("https://panes.so"),
+  openGraph: {
+    title: "Panes — Clean, modern UI components",
+    description:
+      "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
+    url: "https://panes.so",
+    siteName: "Panes",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Panes — Clean, modern UI components",
+    description:
+      "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
