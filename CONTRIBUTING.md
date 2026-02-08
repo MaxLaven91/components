@@ -5,7 +5,7 @@ Thanks for your interest in contributing. This guide covers everything you need 
 ## Setup
 
 ```bash
-git clone https://github.com/maxlavender/panes.git
+git clone https://github.com/MaxLaven91/panes.git
 cd panes
 npm install
 npm run dev
