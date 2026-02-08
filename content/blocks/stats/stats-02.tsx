@@ -77,7 +77,7 @@ const chartConfigNegative = {
 export default function Stats02() {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {stats.map((stat) => (
+      {stats.map((stat, index) => (
         <Card key={stat.title}>
           <CardHeader className="flex flex-row items-center justify-between pb-0">
             <CardTitle className="text-sm font-medium text-muted-foreground">
@@ -104,7 +104,7 @@ export default function Stats02() {
             >
               <AreaChart data={stat.data} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                 <defs>
-                  <linearGradient id={`fill-${stat.title}`} x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id={`fill-${index}`} x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="var(--color-value)" stopOpacity={0.3} />
                     <stop offset="100%" stopColor="var(--color-value)" stopOpacity={0} />
                   </linearGradient>
@@ -114,7 +114,7 @@ export default function Stats02() {
                   dataKey="value"
                   stroke="var(--color-value)"
                   strokeWidth={2}
-                  fill={`url(#fill-${stat.title})`}
+                  fill={`url(#fill-${index})`}
                   dot={false}
                   isAnimationActive={false}
                 />
