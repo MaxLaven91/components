@@ -29,16 +29,11 @@ export const metadata: Metadata = {
     siteName: "Panes",
     locale: "en_US",
     type: "website",
-    images: [
-      { url: "/og.png", width: 1200, height: 630, alt: "Panes — Clean, modern UI components" },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
     title: "Panes — Clean, modern UI components",
     description:
       "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
-    images: ["/og.png"],
   },
   robots: {
     index: true,
