@@ -10,7 +10,7 @@ export function SiteHeader() {
           Panes
         </Link>
         <Button variant="outline" size="sm" asChild>
-          <a href="https://github.com/maxlavender/panes" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/MaxLaven91/panes" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
         </Button>

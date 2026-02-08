@@ -23,7 +23,7 @@ export default function Home() {
           </Button>
           <Button size="lg" variant="outline" asChild>
             <a
-              href="https://github.com/maxlavender/panes"
+              href="https://github.com/MaxLaven91/panes"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -81,7 +81,7 @@ export default function Home() {
         <p>
           Built by{" "}
           <a
-            href="https://github.com/maxlavender"
+            href="https://github.com/MaxLaven91"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4"
@@ -90,7 +90,7 @@ export default function Home() {
           </a>
           . Open source on{" "}
           <a
-            href="https://github.com/maxlavender/panes"
+            href="https://github.com/MaxLaven91/panes"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4"
