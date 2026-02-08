@@ -37,7 +37,7 @@ export default function Stats01() {
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-0">
-            <div className="text-2xl font-bold">{stat.value}</div>
+            <div className="text-2xl font-bold tracking-tight tabular-nums">{stat.value}</div>
             <Badge
               variant={stat.change > 0 ? "secondary" : "destructive"}
               className="mt-1 gap-1 font-normal"
