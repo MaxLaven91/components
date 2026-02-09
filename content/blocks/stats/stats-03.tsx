@@ -36,7 +36,7 @@ export default function Stats03() {
       {metrics.map((metric) => {
         const Icon = metric.icon;
         return (
-          <Card key={metric.title}>
+          <Card key={metric.title} className="shadow-none">
             <CardContent className="pt-6">
               <div className="flex items-center gap-3">
                 <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">

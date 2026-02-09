@@ -32,7 +32,7 @@ export default function Form03() {
   }
 
   return (
-    <Card className="w-full max-w-lg">
+    <Card className="w-full max-w-lg shadow-none">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-lg">Profile</CardTitle>
         <Button

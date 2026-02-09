@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch";
 
 export default function Form02() {
   return (
-    <Card className="w-full max-w-lg">
+    <Card className="w-full max-w-lg shadow-none">
       <CardHeader>
         <CardTitle className="text-2xl tracking-tight">Settings</CardTitle>
         <CardDescription>Manage your account settings and preferences.</CardDescription>

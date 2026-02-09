@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function Form01() {
   return (
-    <Card className="w-full max-w-lg">
+    <Card className="w-full max-w-lg shadow-none">
       <CardHeader>
         <CardTitle className="text-2xl tracking-tight">Contact us</CardTitle>
         <CardDescription>

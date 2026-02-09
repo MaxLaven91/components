@@ -26,7 +26,7 @@ function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
 export default function Login02() {
   return (
     <div className="flex min-h-[600px] w-full items-center justify-center px-4">
-      <Card className="w-full max-w-sm">
+      <Card className="w-full max-w-sm shadow-none">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl tracking-tight">Welcome back</CardTitle>
           <CardDescription>Sign in with your preferred method</CardDescription>

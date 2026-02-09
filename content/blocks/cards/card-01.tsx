@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export default function Card01() {
   return (
-    <Card className="w-full max-w-xs overflow-hidden">
+    <Card className="w-full max-w-xs overflow-hidden shadow-none">
       <div className="aspect-video bg-muted" role="img" aria-label="Product image" />
       <CardContent className="pt-4">
         <div className="flex items-start justify-between gap-2">

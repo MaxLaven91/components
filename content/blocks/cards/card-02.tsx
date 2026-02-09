@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function Card02() {
   return (
-    <Card className="w-full max-w-xs">
+    <Card className="w-full max-w-xs shadow-none">
       <CardContent className="pt-6 text-center">
         <Avatar className="mx-auto size-20">
           <AvatarFallback className="text-lg">SD</AvatarFallback>

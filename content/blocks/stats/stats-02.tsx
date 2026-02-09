@@ -78,7 +78,7 @@ export default function Stats02() {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((stat, index) => (
-        <Card key={stat.title}>
+        <Card key={stat.title} className="shadow-none">
           <CardHeader className="flex flex-row items-center justify-between pb-0">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {stat.title}

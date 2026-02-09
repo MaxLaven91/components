@@ -26,7 +26,7 @@ export default function Login04() {
             inset: submitted ? undefined : 0,
           }}
         >
-          <Card className="w-full text-center">
+          <Card className="w-full text-center shadow-none">
             <CardHeader>
               <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary/10">
                 <CheckCircle2 className="size-6 text-primary" aria-hidden="true" />
@@ -56,7 +56,7 @@ export default function Login04() {
             inset: submitted ? 0 : undefined,
           }}
         >
-          <Card className="w-full">
+          <Card className="w-full shadow-none">
             <CardHeader className="text-center">
               <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary/10">
                 <Mail className="size-6 text-primary" aria-hidden="true" />

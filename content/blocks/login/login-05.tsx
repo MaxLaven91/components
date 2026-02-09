@@ -30,7 +30,7 @@ export default function Login05() {
 
   return (
     <div className="flex min-h-[600px] w-full items-center justify-center px-4">
-      <Card className="w-full max-w-sm overflow-hidden">
+      <Card className="w-full max-w-sm overflow-hidden shadow-none">
         <CardHeader>
           <div className="space-y-3">
             <Progress value={progress} className="h-1" aria-label={`Step ${step + 1} of ${steps.length}`} />

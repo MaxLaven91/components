@@ -43,7 +43,7 @@ export default function Stats05() {
   const [period, setPeriod] = useState("7d");
 
   return (
-    <Card className="w-full max-w-xl">
+    <Card className="w-full max-w-xl shadow-none">
       <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-sm text-muted-foreground">Total Revenue</p>
