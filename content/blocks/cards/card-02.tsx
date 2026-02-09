@@ -11,7 +11,7 @@ export default function Card02() {
         <Avatar className="mx-auto size-20">
           <AvatarFallback className="text-lg">SD</AvatarFallback>
         </Avatar>
-        <h3 className="mt-4 text-lg font-semibold">Sofia Davis</h3>
+        <h3 className="mt-4 text-lg font-semibold tracking-tight">Sofia Davis</h3>
         <p className="text-sm text-muted-foreground">Product Designer</p>
         <p className="mt-3 text-sm text-muted-foreground">
           Designing user experiences that feel effortless. Previously at Stripe and Figma.

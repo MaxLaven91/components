@@ -24,9 +24,9 @@ export default function Dialog01() {
       <AlertDialogContent>
         <AlertDialogHeader>
           <div className="flex size-12 items-center justify-center rounded-full bg-destructive/10">
-            <TriangleAlert className="size-6 text-destructive" />
+            <TriangleAlert className="size-6 text-destructive" aria-hidden="true" />
           </div>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogTitle className="tracking-tight">Are you sure?</AlertDialogTitle>
           <AlertDialogDescription>
             This will permanently delete the project and all of its data. This action cannot be
             undone.

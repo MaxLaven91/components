@@ -42,7 +42,7 @@ export default function Form03() {
           className="transition-opacity duration-150 ease-out motion-reduce:transition-none"
           style={{ opacity: editing ? 0 : 1, pointerEvents: editing ? "none" : "auto" }}
         >
-          <Pencil className="size-3.5" />
+          <Pencil className="size-3.5" aria-hidden="true" />
           Edit
         </Button>
       </CardHeader>

@@ -28,7 +28,7 @@ export default function Login04() {
           <Card className="w-full text-center">
             <CardHeader>
               <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary/10">
-                <CheckCircle2 className="size-6 text-primary" />
+                <CheckCircle2 className="size-6 text-primary" aria-hidden="true" />
               </div>
               <CardTitle className="text-2xl tracking-tight">Check your email</CardTitle>
               <CardDescription>
@@ -57,7 +57,7 @@ export default function Login04() {
           <Card className="w-full">
             <CardHeader className="text-center">
               <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary/10">
-                <Mail className="size-6 text-primary" />
+                <Mail className="size-6 text-primary" aria-hidden="true" />
               </div>
               <CardTitle className="text-2xl tracking-tight">Sign in with email</CardTitle>
               <CardDescription>

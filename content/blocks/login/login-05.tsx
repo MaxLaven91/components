@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -27,9 +27,6 @@ export default function Login05() {
       setVisible(true);
     }, 150);
   }
-
-  // Ensure initial render is visible
-  useEffect(() => setVisible(true), []);
 
   return (
     <div className="flex min-h-[600px] w-full items-center justify-center px-4">
@@ -122,7 +119,7 @@ export default function Login05() {
               >
                 <div className="grid gap-2">
                   <Label htmlFor="login05-role">What best describes your role?</Label>
-                  <Input id="login05-role" placeholder="e.g. Designer, Developer, PM" />
+                  <Input id="login05-role" placeholder="e.g. Designer, Developer, PM" autoComplete="off" />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="login05-company">Company (optional)</Label>

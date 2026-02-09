@@ -91,9 +91,9 @@ export default function Stats02() {
               className="mt-1 gap-1 font-normal"
             >
               {stat.change > 0 ? (
-                <TrendingUp className="size-3" />
+                <TrendingUp className="size-3" aria-hidden="true" />
               ) : (
-                <TrendingDown className="size-3" />
+                <TrendingDown className="size-3" aria-hidden="true" />
               )}
               {stat.change > 0 ? "+" : ""}
               {stat.change}%
@@ -101,6 +101,7 @@ export default function Stats02() {
             <ChartContainer
               config={stat.change > 0 ? chartConfig : chartConfigNegative}
               className="mt-3 h-16 w-full"
+              aria-hidden="true"
             >
               <AreaChart data={stat.data} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                 <defs>

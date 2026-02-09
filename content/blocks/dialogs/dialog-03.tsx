@@ -21,37 +21,37 @@ export default function Dialog03() {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           <CommandItem>
-            <Calendar className="size-4" />
+            <Calendar className="size-4" aria-hidden="true" />
             <span>Calendar</span>
           </CommandItem>
           <CommandItem>
-            <Smile className="size-4" />
+            <Smile className="size-4" aria-hidden="true" />
             <span>Search Emoji</span>
           </CommandItem>
           <CommandItem>
-            <Search className="size-4" />
+            <Search className="size-4" aria-hidden="true" />
             <span>Search</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
           <CommandItem>
-            <User className="size-4" />
+            <User className="size-4" aria-hidden="true" />
             <span>Profile</span>
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <CreditCard className="size-4" />
+            <CreditCard className="size-4" aria-hidden="true" />
             <span>Billing</span>
             <CommandShortcut>⌘B</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <Settings className="size-4" />
+            <Settings className="size-4" aria-hidden="true" />
             <span>Settings</span>
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <Calculator className="size-4" />
+            <Calculator className="size-4" aria-hidden="true" />
             <span>Calculator</span>
           </CommandItem>
         </CommandGroup>

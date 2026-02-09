@@ -78,7 +78,7 @@ export default function Card03() {
         <ul className="grid gap-2.5">
           {features.map((feature) => (
             <li key={feature} className="flex items-center gap-2 text-sm">
-              <Check className="size-4 shrink-0 text-primary" />
+              <Check className="size-4 shrink-0 text-primary" aria-hidden="true" />
               {feature}
             </li>
           ))}

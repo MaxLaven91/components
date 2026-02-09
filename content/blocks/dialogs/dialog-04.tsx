@@ -21,7 +21,7 @@ export default function Dialog04() {
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
-            <DrawerTitle>Filter results</DrawerTitle>
+            <DrawerTitle className="tracking-tight">Filter results</DrawerTitle>
             <DrawerDescription>Narrow down the results by applying filters.</DrawerDescription>
           </DrawerHeader>
           <div className="grid gap-4 px-4">

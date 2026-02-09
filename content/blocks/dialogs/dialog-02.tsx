@@ -22,7 +22,7 @@ export default function Dialog02() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Create project</DialogTitle>
+          <DialogTitle className="tracking-tight">Create project</DialogTitle>
           <DialogDescription>Add a new project to your workspace.</DialogDescription>
         </DialogHeader>
         <form

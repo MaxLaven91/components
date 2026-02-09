@@ -11,7 +11,7 @@ export default function Card01() {
       <CardContent className="pt-4">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-semibold leading-tight">Wireless Headphones</h3>
+            <h3 className="font-semibold leading-tight tracking-tight">Wireless Headphones</h3>
             <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
               Premium noise-cancelling over-ear headphones with 30-hour battery life.
             </p>
@@ -24,7 +24,7 @@ export default function Card01() {
       </CardContent>
       <CardFooter>
         <Button className="w-full">
-          <ShoppingCart className="size-4" />
+          <ShoppingCart className="size-4" aria-hidden="true" />
           Add to cart
         </Button>
       </CardFooter>

@@ -56,9 +56,9 @@ export default function Stats04() {
               className="mt-3 gap-1 font-normal"
             >
               {stat.change > 0 ? (
-                <TrendingUp className="size-3" />
+                <TrendingUp className="size-3" aria-hidden="true" />
               ) : (
-                <TrendingDown className="size-3" />
+                <TrendingDown className="size-3" aria-hidden="true" />
               )}
               {stat.change > 0 ? "+" : ""}
               {stat.change}%

@@ -40,7 +40,7 @@ export default function Stats03() {
             <CardContent className="pt-6">
               <div className="flex items-center gap-3">
                 <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                  <Icon className="size-5 text-primary" />
+                  <Icon className="size-5 text-primary" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm text-muted-foreground">{metric.title}</p>
@@ -52,7 +52,7 @@ export default function Stats03() {
                   <span>Progress</span>
                   <span className="tabular-nums">{metric.progress}%</span>
                 </div>
-                <Progress value={metric.progress} className="h-1.5" />
+                <Progress value={metric.progress} className="h-1.5" aria-label={metric.title} />
               </div>
             </CardContent>
           </Card>
