@@ -19,7 +19,7 @@ export default async function PreviewPage({ params }: { params: Params }) {
   const { default: Component } = await block.component();
 
   return (
-    <div className="flex min-h-svh items-center justify-center p-6 md:p-10">
+    <div className="flex min-h-svh items-center justify-center p-2 sm:p-6 md:p-10">
       <Component />
     </div>
   );

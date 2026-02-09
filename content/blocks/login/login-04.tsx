@@ -12,7 +12,7 @@ export default function Login04() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="flex min-h-[600px] items-center justify-center">
+    <div className="flex min-h-[600px] w-full items-center justify-center px-4">
       <div className="relative w-full max-w-sm">
         {/* Success state */}
         <div

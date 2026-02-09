@@ -50,7 +50,7 @@ export default function Form02() {
           <div className="space-y-4">
             <h3 className="text-sm font-medium">Notifications</h3>
             <div className="flex items-start justify-between gap-4">
-              <Label htmlFor="form02-email-notif" className="flex flex-col gap-1 text-left">
+              <Label htmlFor="form02-email-notif" className="flex flex-col items-start gap-1">
                 <span>Email notifications</span>
                 <span className="font-normal text-muted-foreground">
                   Receive emails about account activity
@@ -59,7 +59,7 @@ export default function Form02() {
               <Switch id="form02-email-notif" defaultChecked />
             </div>
             <div className="flex items-start justify-between gap-4">
-              <Label htmlFor="form02-marketing" className="flex flex-col gap-1 text-left">
+              <Label htmlFor="form02-marketing" className="flex flex-col items-start gap-1">
                 <span>Marketing emails</span>
                 <span className="font-normal text-muted-foreground">
                   Receive emails about new features and updates
@@ -72,10 +72,12 @@ export default function Form02() {
           <Separator />
 
           <div className="space-y-4">
-            <h3 className="text-sm font-medium text-destructive">Danger zone</h3>
-            <p className="text-sm text-muted-foreground">
-              Permanently delete your account and all associated data.
-            </p>
+            <div className="space-y-1">
+              <h3 className="text-sm font-medium text-destructive">Danger zone</h3>
+              <p className="text-sm text-muted-foreground">
+                Permanently delete your account and all associated data.
+              </p>
+            </div>
             <Button type="button" variant="destructive" size="sm">
               Delete account
             </Button>

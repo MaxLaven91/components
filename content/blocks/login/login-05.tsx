@@ -32,8 +32,8 @@ export default function Login05() {
   useEffect(() => setVisible(true), []);
 
   return (
-    <div className="flex min-h-[600px] items-center justify-center">
-      <Card className="w-full max-w-md">
+    <div className="flex min-h-[600px] w-full items-center justify-center px-4">
+      <Card className="w-full max-w-sm overflow-hidden">
         <CardHeader>
           <div className="space-y-3">
             <Progress value={progress} className="h-1" />
@@ -97,7 +97,10 @@ export default function Login05() {
                   <Label htmlFor="login05-username">Username</Label>
                   <Input id="login05-username" placeholder="janedoe" autoComplete="username" />
                 </div>
-                <div className="flex gap-2">
+                <div className="grid gap-2">
+                  <Button type="submit" className="w-full">
+                    Continue
+                  </Button>
                   <Button
                     type="button"
                     variant="outline"
@@ -105,9 +108,6 @@ export default function Login05() {
                     onClick={() => goToStep(0)}
                   >
                     Back
-                  </Button>
-                  <Button type="submit" className="w-full">
-                    Continue
                   </Button>
                 </div>
               </form>
@@ -128,7 +128,10 @@ export default function Login05() {
                   <Label htmlFor="login05-company">Company (optional)</Label>
                   <Input id="login05-company" placeholder="Acme Inc." autoComplete="organization" />
                 </div>
-                <div className="flex gap-2">
+                <div className="grid gap-2">
+                  <Button type="submit" className="w-full">
+                    Get started
+                  </Button>
                   <Button
                     type="button"
                     variant="outline"
@@ -136,9 +139,6 @@ export default function Login05() {
                     onClick={() => goToStep(1)}
                   >
                     Back
-                  </Button>
-                  <Button type="submit" className="w-full">
-                    Get started
                   </Button>
                 </div>
               </form>

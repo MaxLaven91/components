@@ -44,7 +44,7 @@ export default function Stats05() {
 
   return (
     <Card className="w-full max-w-xl">
-      <CardHeader className="flex flex-row items-start justify-between">
+      <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-sm text-muted-foreground">Total Revenue</p>
           <CardTitle className="text-3xl font-bold tracking-tight tabular-nums">

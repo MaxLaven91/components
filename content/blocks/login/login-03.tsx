@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 
 export default function Login03() {
   return (
-    <div className="grid min-h-[600px] lg:grid-cols-2">
+    <div className="grid w-full min-h-[600px] lg:grid-cols-2">
       <div className="hidden lg:flex flex-col justify-between bg-primary p-10 text-primary-foreground">
         <div className="text-lg font-semibold tracking-tight">Acme Inc.</div>
         <blockquote className="space-y-2">
@@ -17,7 +17,7 @@ export default function Login03() {
           </footer>
         </blockquote>
       </div>
-      <div className="flex items-center justify-center p-8">
+      <div className="flex items-center justify-center p-4 sm:p-8">
         <div className="w-full max-w-sm space-y-6">
           <div className="space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">Sign in</h1>
