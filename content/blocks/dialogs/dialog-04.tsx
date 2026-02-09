@@ -25,26 +25,26 @@ export default function Dialog04() {
             <DrawerDescription>Narrow down the results by applying filters.</DrawerDescription>
           </DrawerHeader>
           <div className="grid gap-4 px-4">
-            <div className="grid gap-2">
-              <p className="text-sm font-medium">Status</p>
-              <div className="flex flex-wrap gap-2">
+            <fieldset className="grid gap-2">
+              <legend className="text-sm font-medium">Status</legend>
+              <div className="flex flex-wrap gap-2" role="group">
                 {["Active", "Inactive", "Pending", "Archived"].map((status) => (
                   <Button key={status} variant="outline" size="sm" className="rounded-full">
                     {status}
                   </Button>
                 ))}
               </div>
-            </div>
-            <div className="grid gap-2">
-              <p className="text-sm font-medium">Category</p>
-              <div className="flex flex-wrap gap-2">
+            </fieldset>
+            <fieldset className="grid gap-2">
+              <legend className="text-sm font-medium">Category</legend>
+              <div className="flex flex-wrap gap-2" role="group">
                 {["Design", "Engineering", "Marketing", "Sales"].map((category) => (
                   <Button key={category} variant="outline" size="sm" className="rounded-full">
                     {category}
                   </Button>
                 ))}
               </div>
-            </div>
+            </fieldset>
           </div>
           <DrawerFooter>
             <Button>Apply filters</Button>

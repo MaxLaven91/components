@@ -17,10 +17,11 @@ export default function Login04() {
         {/* Success state */}
         <div
           className="transition-all duration-200 ease-out motion-reduce:transition-none"
+          aria-hidden={!submitted}
+          inert={!submitted ? true : undefined}
           style={{
             opacity: submitted ? 1 : 0,
             transform: submitted ? "scale(1)" : "scale(0.97)",
-            pointerEvents: submitted ? "auto" : "none",
             position: submitted ? "relative" : "absolute",
             inset: submitted ? undefined : 0,
           }}
@@ -46,10 +47,11 @@ export default function Login04() {
         {/* Form state */}
         <div
           className="transition-all duration-200 ease-out motion-reduce:transition-none"
+          aria-hidden={submitted}
+          inert={submitted ? true : undefined}
           style={{
             opacity: submitted ? 0 : 1,
             transform: submitted ? "scale(0.97)" : "scale(1)",
-            pointerEvents: submitted ? "none" : "auto",
             position: submitted ? "absolute" : "relative",
             inset: submitted ? 0 : undefined,
           }}

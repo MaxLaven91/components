@@ -33,8 +33,8 @@ export default function Login05() {
       <Card className="w-full max-w-sm overflow-hidden">
         <CardHeader>
           <div className="space-y-3">
-            <Progress value={progress} className="h-1" />
-            <p className="text-xs text-muted-foreground tabular-nums">
+            <Progress value={progress} className="h-1" aria-label={`Step ${step + 1} of ${steps.length}`} />
+            <p className="text-xs text-muted-foreground tabular-nums" aria-live="polite">
               Step {step + 1} of {steps.length}
             </p>
           </div>
@@ -61,11 +61,12 @@ export default function Login05() {
                     type="email"
                     placeholder="you@example.com"
                     autoComplete="email"
+                    required
                   />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="login05-password">Password</Label>
-                  <Input id="login05-password" type="password" autoComplete="new-password" />
+                  <Input id="login05-password" type="password" autoComplete="new-password" required />
                 </div>
                 <Button type="submit" className="w-full">
                   Continue

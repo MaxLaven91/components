@@ -56,7 +56,7 @@ export default function Card03() {
       <CardHeader>
         <CardTitle className="text-lg">Pro Plan</CardTitle>
         <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold tracking-tight">
+          <span className="text-4xl font-bold tracking-tight" aria-live="polite">
             <AnimatedPrice value={price} />
           </span>
           <span className="text-muted-foreground">/mo</span>
@@ -68,6 +68,7 @@ export default function Card03() {
             <span
               className="inline-block transition-opacity duration-150 ease-out motion-reduce:transition-none"
               style={{ opacity: annual ? 1 : 0 }}
+              aria-hidden={!annual}
             >
               <span className="text-primary">(save 20%)</span>
             </span>

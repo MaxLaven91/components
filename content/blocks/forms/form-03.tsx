@@ -40,7 +40,9 @@ export default function Form03() {
           size="sm"
           onClick={() => setEditing(true)}
           className="transition-opacity duration-150 ease-out motion-reduce:transition-none"
-          style={{ opacity: editing ? 0 : 1, pointerEvents: editing ? "none" : "auto" }}
+          style={{ opacity: editing ? 0 : 1 }}
+          aria-hidden={editing}
+          tabIndex={editing ? -1 : undefined}
         >
           <Pencil className="size-3.5" aria-hidden="true" />
           Edit
@@ -51,9 +53,10 @@ export default function Form03() {
           {/* Edit mode */}
           <div
             className="transition-all duration-200 ease-out motion-reduce:transition-none"
+            aria-hidden={!editing}
+            inert={!editing ? true : undefined}
             style={{
               opacity: editing ? 1 : 0,
-              pointerEvents: editing ? "auto" : "none",
               position: editing ? "relative" : "absolute",
               inset: editing ? undefined : 0,
             }}
@@ -99,9 +102,10 @@ export default function Form03() {
           {/* View mode */}
           <div
             className="transition-all duration-200 ease-out motion-reduce:transition-none"
+            aria-hidden={editing}
+            inert={editing ? true : undefined}
             style={{
               opacity: editing ? 0 : 1,
-              pointerEvents: editing ? "none" : "auto",
               position: editing ? "absolute" : "relative",
               inset: editing ? 0 : undefined,
             }}

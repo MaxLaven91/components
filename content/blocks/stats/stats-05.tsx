@@ -52,14 +52,14 @@ export default function Stats05() {
           </CardTitle>
         </div>
         <Tabs value={period} onValueChange={setPeriod}>
-          <TabsList className="h-8">
-            <TabsTrigger value="7d" className="text-xs px-2.5">
+          <TabsList className="h-8" aria-label="Time period">
+            <TabsTrigger value="7d" className="text-xs px-2.5" aria-label="Last 7 days">
               7d
             </TabsTrigger>
-            <TabsTrigger value="30d" className="text-xs px-2.5">
+            <TabsTrigger value="30d" className="text-xs px-2.5" aria-label="Last 30 days">
               30d
             </TabsTrigger>
-            <TabsTrigger value="90d" className="text-xs px-2.5">
+            <TabsTrigger value="90d" className="text-xs px-2.5" aria-label="Last 90 days">
               90d
             </TabsTrigger>
           </TabsList>

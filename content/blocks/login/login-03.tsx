@@ -33,11 +33,12 @@ export default function Login03() {
                 type="email"
                 placeholder="you@example.com"
                 autoComplete="email"
+                required
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="login03-password">Password</Label>
-              <Input id="login03-password" type="password" autoComplete="current-password" />
+              <Input id="login03-password" type="password" autoComplete="current-password" required />
             </div>
             <Button type="submit" className="w-full">
               Sign in
