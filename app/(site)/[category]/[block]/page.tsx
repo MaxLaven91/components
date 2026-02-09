@@ -56,7 +56,7 @@ export default async function BlockPage({ params }: { params: Params }) {
 
       {/* Header */}
       <div className="mt-6">
-        <h1 className="text-3xl font-bold tracking-tight">{block.name}</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">{block.name}</h1>
         <p className="mt-1 text-muted-foreground">{block.description}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {block.tags.map((tag) => (

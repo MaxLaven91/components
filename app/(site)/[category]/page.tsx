@@ -37,7 +37,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
         <span className="mx-2 text-muted-foreground">/</span>
         <span className="text-sm">{category.label}</span>
       </div>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight">{category.label}</h1>
+      <h1 className="mt-4 text-3xl font-semibold tracking-tight">{category.label}</h1>
       <p className="mt-1 text-muted-foreground">{category.description}</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

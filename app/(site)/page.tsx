@@ -10,7 +10,7 @@ export default function Home() {
     <div className="mx-auto max-w-6xl px-4 py-16">
       {/* Hero */}
       <section className="flex flex-col items-center text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
           Clean, modern UI components
         </h1>
         <p className="mt-4 max-w-lg text-lg text-muted-foreground">
@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* Categories */}
       <section id="categories" className="mt-24 scroll-mt-20">
-        <h2 className="text-2xl font-bold tracking-tight">Categories</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Categories</h2>
         <p className="mt-1 text-muted-foreground">
           {blocks.length} components across {categories.length} categories.
         </p>
