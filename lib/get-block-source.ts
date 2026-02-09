@@ -22,6 +22,15 @@ const blockPaths: Record<string, string> = {
   "form-01": "content/blocks/forms/form-01.tsx",
   "form-02": "content/blocks/forms/form-02.tsx",
   "form-03": "content/blocks/forms/form-03.tsx",
+  "table-01": "content/blocks/tables/table-01.tsx",
+  "table-02": "content/blocks/tables/table-02.tsx",
+  "table-03": "content/blocks/tables/table-03.tsx",
+  "table-04": "content/blocks/tables/table-04.tsx",
+  "table-05": "content/blocks/tables/table-05.tsx",
+  "sidebar-01": "content/blocks/sidebars/sidebar-01.tsx",
+  "sidebar-02": "content/blocks/sidebars/sidebar-02.tsx",
+  "sidebar-03": "content/blocks/sidebars/sidebar-03.tsx",
+  "sidebar-04": "content/blocks/sidebars/sidebar-04.tsx",
 };
 
 export function getBlockSource(blockId: string): string {

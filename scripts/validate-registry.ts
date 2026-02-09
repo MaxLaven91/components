@@ -14,17 +14,21 @@ const KNOWN_SHADCN_COMPONENTS = new Set([
   "button",
   "card",
   "chart",
+  "checkbox",
   "command",
   "dialog",
   "drawer",
+  "dropdown-menu",
   "input",
   "label",
   "progress",
   "select",
   "separator",
   "switch",
+  "table",
   "tabs",
   "textarea",
+  "tooltip",
 ]);
 
 // Known npm packages that blocks can use
@@ -134,7 +138,7 @@ function main() {
 
   // Check for orphan files (component files with no blocks.ts entry)
   console.log("  [2/4] Checking for orphan component files...");
-  const blockDirs = ["stats", "login", "dialogs", "cards", "forms"];
+  const blockDirs = ["stats", "login", "dialogs", "cards", "forms", "tables", "sidebars"];
   for (const dir of blockDirs) {
     const dirPath = path.join(ROOT, "content/blocks", dir);
     if (!fs.existsSync(dirPath)) continue;
