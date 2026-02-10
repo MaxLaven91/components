@@ -81,11 +81,11 @@ const orders = [
 
 type Status = (typeof orders)[number]["status"];
 
-const statusVariant: Record<Status, "secondary" | "outline" | "destructive" | "default"> = {
-  Completed: "secondary",
-  Pending: "outline",
-  Cancelled: "destructive",
-  Processing: "default",
+const statusConfig: Record<Status, { variant: "secondary" | "outline" | "destructive" | "default"; className?: string }> = {
+  Completed: { variant: "secondary", className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300" },
+  Processing: { variant: "default" },
+  Pending: { variant: "outline" },
+  Cancelled: { variant: "destructive" },
 };
 
 export default function Table02() {
@@ -109,11 +109,16 @@ export default function Table02() {
           </TableHeader>
           <TableBody>
             {orders.map((order) => (
-              <TableRow key={order.id}>
+              <TableRow key={order.id} className="transition-colors hover:bg-muted/50">
                 <TableCell className="font-medium">{order.id}</TableCell>
                 <TableCell>{order.customer}</TableCell>
                 <TableCell>
-                  <Badge variant={statusVariant[order.status]}>{order.status}</Badge>
+                  <Badge
+                    variant={statusConfig[order.status].variant}
+                    className={statusConfig[order.status].className}
+                  >
+                    {order.status}
+                  </Badge>
                 </TableCell>
                 <TableCell className="text-right tabular-nums">
                   ${order.amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}

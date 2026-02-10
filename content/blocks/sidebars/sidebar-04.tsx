@@ -50,15 +50,17 @@ export default function Sidebar04() {
                 <Button
                   variant={item.active ? "secondary" : "ghost"}
                   className="w-full justify-start gap-2"
-                  {...(item.active ? { "aria-current": "page" as const } : {})}
+                  asChild
                 >
-                  <Icon className="size-4" aria-hidden="true" />
-                  {item.label}
-                  {item.badge && (
-                    <Badge variant="secondary" className="ml-auto">
-                      {item.badge}
-                    </Badge>
-                  )}
+                  <a href="#" {...(item.active ? { "aria-current": "page" as const } : {})}>
+                    <Icon className="size-4" aria-hidden="true" />
+                    {item.label}
+                    {item.badge && (
+                      <Badge variant="secondary" className="ml-auto">
+                        {item.badge}
+                      </Badge>
+                    )}
+                  </a>
                 </Button>
               </li>
             );
@@ -67,9 +69,11 @@ export default function Sidebar04() {
       </nav>
 
       <div className="mt-auto flex flex-col gap-1">
-        <Button variant="ghost" className="w-full justify-start gap-2">
-          <Settings className="size-4" aria-hidden="true" />
-          Settings
+        <Button variant="ghost" className="w-full justify-start gap-2" asChild>
+          <a href="#">
+            <Settings className="size-4" aria-hidden="true" />
+            Settings
+          </a>
         </Button>
 
         <Separator className="my-2" />

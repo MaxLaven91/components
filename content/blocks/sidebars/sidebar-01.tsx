@@ -37,19 +37,23 @@ export default function Sidebar01() {
               <Button
                 variant={item.active ? "secondary" : "ghost"}
                 className="w-full justify-start gap-2"
-                {...(item.active ? { "aria-current": "page" as const } : {})}
+                asChild
               >
-                <item.icon className="size-4" aria-hidden="true" />
-                {item.label}
+                <a href="#" {...(item.active ? { "aria-current": "page" as const } : {})}>
+                  <item.icon className="size-4" aria-hidden="true" />
+                  {item.label}
+                </a>
               </Button>
             </li>
           ))}
 
           <li className="mt-auto">
             <Separator className="mb-4" />
-            <Button variant="ghost" className="w-full justify-start gap-2">
-              <HelpCircle className="size-4" aria-hidden="true" />
-              Help & Support
+            <Button variant="ghost" className="w-full justify-start gap-2" asChild>
+              <a href="#">
+                <HelpCircle className="size-4" aria-hidden="true" />
+                Help & Support
+              </a>
             </Button>
           </li>
         </ul>

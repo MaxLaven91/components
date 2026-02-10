@@ -39,16 +39,21 @@ const chartConfig = {
   revenue: { label: "Revenue", color: "var(--chart-1)" },
 } satisfies ChartConfig;
 
+function formatRevenue(value: number) {
+  return `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
 export default function Stats05() {
   const [period, setPeriod] = useState("7d");
+  const total = data[period].reduce((sum, d) => sum + d.revenue, 0);
 
   return (
-    <Card className="w-full max-w-xl shadow-none">
+    <Card className="w-full max-w-xl shadow-sm">
       <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-sm text-muted-foreground">Total Revenue</p>
           <CardTitle className="text-3xl font-bold tracking-tight tabular-nums">
-            $45,231.89
+            {formatRevenue(total)}
           </CardTitle>
         </div>
         <Tabs value={period} onValueChange={setPeriod}>

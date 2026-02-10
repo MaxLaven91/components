@@ -72,17 +72,17 @@ export default function Sidebar02() {
                   <Button
                     variant={item.active ? "secondary" : "ghost"}
                     className="w-full justify-start gap-2"
-                    {...(item.active
-                      ? { "aria-current": "page" as const }
-                      : {})}
+                    asChild
                   >
-                    <item.icon className="size-4" aria-hidden="true" />
-                    {item.label}
-                    {item.count != null && (
-                      <Badge variant="secondary" className="ml-auto">
-                        {item.count}
-                      </Badge>
-                    )}
+                    <a href="#" {...(item.active ? { "aria-current": "page" as const } : {})}>
+                      <item.icon className="size-4" aria-hidden="true" />
+                      {item.label}
+                      {item.count != null && (
+                        <Badge variant="secondary" className="ml-auto">
+                          {item.count}
+                        </Badge>
+                      )}
+                    </a>
                   </Button>
                 </li>
               ))}

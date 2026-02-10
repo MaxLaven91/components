@@ -79,12 +79,11 @@ export default function Sidebar03() {
                         variant={item.active ? "secondary" : "ghost"}
                         size="icon"
                         className="w-full"
-                        aria-label={item.label}
-                        {...(item.active
-                          ? { "aria-current": "page" as const }
-                          : {})}
+                        asChild
                       >
-                        <item.icon className="size-4" aria-hidden="true" />
+                        <a href="#" aria-label={item.label} {...(item.active ? { "aria-current": "page" as const } : {})}>
+                          <item.icon className="size-4" aria-hidden="true" />
+                        </a>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent side="right">{item.label}</TooltipContent>
@@ -93,12 +92,12 @@ export default function Sidebar03() {
                   <Button
                     variant={item.active ? "secondary" : "ghost"}
                     className="w-full justify-start gap-2"
-                    {...(item.active
-                      ? { "aria-current": "page" as const }
-                      : {})}
+                    asChild
                   >
-                    <item.icon className="size-4" aria-hidden="true" />
-                    {item.label}
+                    <a href="#" {...(item.active ? { "aria-current": "page" as const } : {})}>
+                      <item.icon className="size-4" aria-hidden="true" />
+                      {item.label}
+                    </a>
                   </Button>
                 )}
               </li>
@@ -113,9 +112,11 @@ export default function Sidebar03() {
                       variant="ghost"
                       size="icon"
                       className="w-full"
-                      aria-label="Settings"
+                      asChild
                     >
-                      <Settings className="size-4" aria-hidden="true" />
+                      <a href="#" aria-label="Settings">
+                        <Settings className="size-4" aria-hidden="true" />
+                      </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent side="right">Settings</TooltipContent>
@@ -124,9 +125,12 @@ export default function Sidebar03() {
                 <Button
                   variant="ghost"
                   className="w-full justify-start gap-2"
+                  asChild
                 >
-                  <Settings className="size-4" aria-hidden="true" />
-                  Settings
+                  <a href="#">
+                    <Settings className="size-4" aria-hidden="true" />
+                    Settings
+                  </a>
                 </Button>
               )}
             </li>

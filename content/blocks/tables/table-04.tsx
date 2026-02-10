@@ -128,6 +128,12 @@ const priorityVariant: Record<Priority, "destructive" | "secondary" | "outline">
   Low: "outline",
 };
 
+const statusConfig: Record<Status, { variant: "secondary" | "default" | "outline"; className?: string }> = {
+  Done: { variant: "secondary", className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300" },
+  "In Progress": { variant: "default" },
+  Todo: { variant: "outline" },
+};
+
 export default function Table04() {
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
@@ -181,7 +187,7 @@ export default function Table04() {
             <TableBody>
               {filteredTasks.length > 0 ? (
                 filteredTasks.map((task) => (
-                  <TableRow key={task.id}>
+                  <TableRow key={task.id} className="transition-colors hover:bg-muted/50">
                     <TableCell>
                       <div>
                         <span className="font-medium">{task.task}</span>
@@ -201,8 +207,13 @@ export default function Table04() {
                         {task.priority}
                       </Badge>
                     </TableCell>
-                    <TableCell className="text-muted-foreground">
-                      {task.status}
+                    <TableCell>
+                      <Badge
+                        variant={statusConfig[task.status].variant}
+                        className={statusConfig[task.status].className}
+                      >
+                        {task.status}
+                      </Badge>
                     </TableCell>
                   </TableRow>
                 ))

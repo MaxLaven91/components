@@ -38,8 +38,13 @@ export default function Login05() {
               Step {step + 1} of {steps.length}
             </p>
           </div>
-          <CardTitle className="text-2xl tracking-tight">{steps[step].title}</CardTitle>
-          <CardDescription>{steps[step].description}</CardDescription>
+          <div
+            className="transition-opacity duration-150 ease-out motion-reduce:transition-none"
+            style={{ opacity: visible ? 1 : 0 }}
+          >
+            <CardTitle className="text-2xl tracking-tight">{steps[step].title}</CardTitle>
+            <CardDescription>{steps[step].description}</CardDescription>
+          </div>
         </CardHeader>
         <CardContent>
           <div

@@ -47,10 +47,10 @@ const invoices: Invoice[] = [
 
 const PAGE_SIZE = 5;
 
-const statusVariant: Record<Status, "secondary" | "outline" | "destructive"> = {
-  Paid: "secondary",
-  Pending: "outline",
-  Overdue: "destructive",
+const statusConfig: Record<Status, { variant: "secondary" | "outline" | "destructive"; className?: string }> = {
+  Paid: { variant: "secondary", className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300" },
+  Pending: { variant: "outline" },
+  Overdue: { variant: "destructive" },
 };
 
 function formatAmount(amount: number): string {
@@ -160,6 +160,7 @@ export default function Table05() {
                 pageRows.map((invoice) => (
                   <TableRow
                     key={invoice.id}
+                    className="transition-colors hover:bg-muted/50"
                     data-state={selectedIds.has(invoice.id) ? "selected" : undefined}
                   >
                     <TableCell>
@@ -175,7 +176,10 @@ export default function Table05() {
                       {formatAmount(invoice.amount)}
                     </TableCell>
                     <TableCell>
-                      <Badge variant={statusVariant[invoice.status]}>
+                      <Badge
+                        variant={statusConfig[invoice.status].variant}
+                        className={statusConfig[invoice.status].className}
+                      >
                         {invoice.status}
                       </Badge>
                     </TableCell>

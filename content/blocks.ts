@@ -196,7 +196,7 @@ export const blocks: Block[] = [
     name: "Command Palette",
     description: "Command-K style search with grouped results and keyboard shortcuts",
     tags: ["command", "search", "palette", "keyboard"],
-    registryDependencies: ["command"],
+    registryDependencies: ["command", "dialog", "button"],
     dependencies: ["lucide-react"],
     component: () => import("./blocks/dialogs/dialog-03"),
   },

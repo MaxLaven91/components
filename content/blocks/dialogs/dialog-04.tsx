@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -12,7 +14,23 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
+const statuses = ["Active", "Inactive", "Pending", "Archived"];
+const categories = ["Design", "Engineering", "Marketing", "Sales"];
+
+function toggleItem(set: Set<string>, item: string): Set<string> {
+  const next = new Set(set);
+  if (next.has(item)) {
+    next.delete(item);
+  } else {
+    next.add(item);
+  }
+  return next;
+}
+
 export default function Dialog04() {
+  const [selectedStatuses, setSelectedStatuses] = useState<Set<string>>(new Set(["Active"]));
+  const [selectedCategories, setSelectedCategories] = useState<Set<string>>(new Set());
+
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -28,8 +46,15 @@ export default function Dialog04() {
             <fieldset className="grid gap-2">
               <legend className="text-sm font-medium">Status</legend>
               <div className="flex flex-wrap gap-2" role="group">
-                {["Active", "Inactive", "Pending", "Archived"].map((status) => (
-                  <Button key={status} variant="outline" size="sm" className="rounded-full">
+                {statuses.map((status) => (
+                  <Button
+                    key={status}
+                    variant={selectedStatuses.has(status) ? "default" : "outline"}
+                    size="sm"
+                    className="rounded-full"
+                    onClick={() => setSelectedStatuses((prev) => toggleItem(prev, status))}
+                    aria-pressed={selectedStatuses.has(status)}
+                  >
                     {status}
                   </Button>
                 ))}
@@ -38,8 +63,15 @@ export default function Dialog04() {
             <fieldset className="grid gap-2">
               <legend className="text-sm font-medium">Category</legend>
               <div className="flex flex-wrap gap-2" role="group">
-                {["Design", "Engineering", "Marketing", "Sales"].map((category) => (
-                  <Button key={category} variant="outline" size="sm" className="rounded-full">
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedCategories.has(category) ? "default" : "outline"}
+                    size="sm"
+                    className="rounded-full"
+                    onClick={() => setSelectedCategories((prev) => toggleItem(prev, category))}
+                    aria-pressed={selectedCategories.has(category)}
+                  >
                     {category}
                   </Button>
                 ))}

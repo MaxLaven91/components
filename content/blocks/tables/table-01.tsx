@@ -91,7 +91,7 @@ export default function Table01() {
           </TableHeader>
           <TableBody>
             {employees.map((employee) => (
-              <TableRow key={employee.name}>
+              <TableRow key={employee.name} className="transition-colors hover:bg-muted/50">
                 <TableCell className="font-medium">{employee.name}</TableCell>
                 <TableCell className="text-muted-foreground">
                   {employee.department}

@@ -51,7 +51,7 @@ export default function Card03() {
   const price = annual ? 19 : 24;
 
   return (
-    <Card className="relative w-full max-w-xs shadow-none">
+    <Card className="relative w-full max-w-xs shadow-sm">
       <Badge className="absolute -top-2.5 right-4">Popular</Badge>
       <CardHeader>
         <CardTitle className="text-lg">Pro Plan</CardTitle>

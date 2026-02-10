@@ -123,7 +123,7 @@ export default function Table03() {
             </TableHeader>
             <TableBody>
               {sorted.map((row) => (
-                <TableRow key={row.product}>
+                <TableRow key={row.product} className="transition-colors hover:bg-muted/50">
                   <TableCell className="font-medium">{row.product}</TableCell>
                   <TableCell className="text-muted-foreground">
                     {row.category}

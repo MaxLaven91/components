@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +11,12 @@ import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 
 export default function Form02() {
+  const [isDirty, setIsDirty] = useState(false);
+
+  function markDirty() {
+    if (!isDirty) setIsDirty(true);
+  }
+
   return (
     <Card className="w-full max-w-lg shadow-none">
       <CardHeader>
@@ -14,7 +24,7 @@ export default function Form02() {
         <CardDescription>Manage your account settings and preferences.</CardDescription>
       </CardHeader>
       <CardContent>
-        <form className="space-y-6">
+        <form className="space-y-6" onChange={markDirty}>
           <div className="flex items-center gap-4">
             <Avatar className="size-16">
               <AvatarFallback className="text-lg">JD</AvatarFallback>
@@ -56,7 +66,7 @@ export default function Form02() {
                   Receive emails about account activity
                 </span>
               </Label>
-              <Switch id="form02-email-notif" defaultChecked />
+              <Switch id="form02-email-notif" defaultChecked onCheckedChange={markDirty} />
             </div>
             <div className="flex items-start justify-between gap-4">
               <Label htmlFor="form02-marketing" className="flex flex-col items-start gap-1">
@@ -65,7 +75,7 @@ export default function Form02() {
                   Receive emails about new features and updates
                 </span>
               </Label>
-              <Switch id="form02-marketing" />
+              <Switch id="form02-marketing" onCheckedChange={markDirty} />
             </div>
           </div>
 
@@ -84,7 +94,7 @@ export default function Form02() {
           </div>
 
           <div className="flex justify-end">
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" disabled={!isDirty}>Save changes</Button>
           </div>
         </form>
       </CardContent>
