@@ -71,6 +71,69 @@ const SCENES: SceneMeta[] = [
     dependencies: ["lucide-react"],
     file: "content/scenes/settings/settings-01.tsx",
   },
+  {
+    id: "pricing-01",
+    category: "pricing",
+    name: "SaaS Pricing",
+    description:
+      "Full pricing page with monthly/annual toggle, plan cards, feature comparison table, and FAQ accordion",
+    registryDependencies: [
+      "accordion",
+      "badge",
+      "button",
+      "card",
+      "separator",
+      "table",
+      "tabs",
+    ],
+    dependencies: ["lucide-react"],
+    file: "content/scenes/pricing/pricing-01.tsx",
+  },
+  {
+    id: "onboarding-01",
+    category: "onboarding",
+    name: "Setup Wizard",
+    description:
+      "Multi-step onboarding wizard with progress indicator, form steps, and animated transitions",
+    registryDependencies: [
+      "button",
+      "card",
+      "checkbox",
+      "input",
+      "label",
+      "select",
+      "separator",
+    ],
+    dependencies: ["lucide-react"],
+    file: "content/scenes/onboarding/onboarding-01.tsx",
+  },
+  {
+    id: "error-01",
+    category: "error",
+    name: "404 Page",
+    description:
+      "Branded 404 error page with search input and quick navigation links",
+    registryDependencies: ["button", "input"],
+    dependencies: ["lucide-react"],
+    file: "content/scenes/error/error-01.tsx",
+  },
+  {
+    id: "analytics-01",
+    category: "analytics",
+    name: "Traffic Analytics",
+    description:
+      "Analytics dashboard with KPI cards, traffic chart, channel breakdown, and top pages table",
+    registryDependencies: [
+      "badge",
+      "button",
+      "card",
+      "chart",
+      "table",
+      "tabs",
+    ],
+    dependencies: ["lucide-react", "recharts"],
+    file: "content/scenes/analytics/analytics-01.tsx",
+  },
 ];
 
 const ROOT = path.resolve(__dirname, "..");

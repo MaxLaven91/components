@@ -1,6 +1,7 @@
 import { Layers } from "lucide-react";
 import Link from "next/link";
 
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 
 export function SiteHeader() {
@@ -10,11 +11,14 @@ export function SiteHeader() {
         <Link href="/" className="flex size-8 items-center justify-center rounded-md hover:bg-muted" aria-label="Home">
           <Layers className="size-5" aria-hidden="true" />
         </Link>
-        <Button variant="outline" size="sm" asChild>
-          <a href="https://github.com/MaxLaven91/scenes" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button variant="outline" size="sm" asChild>
+            <a href="https://github.com/MaxLaven91/scenes" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </Button>
+        </div>
       </div>
     </header>
   );

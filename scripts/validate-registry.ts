@@ -8,6 +8,7 @@ const ROOT = path.resolve(__dirname, "..");
 
 // Known shadcn/ui component names (what registryDependencies can reference)
 const KNOWN_SHADCN_COMPONENTS = new Set([
+  "accordion",
   "alert-dialog",
   "avatar",
   "badge",
@@ -130,7 +131,7 @@ function main() {
 
   // Check for orphan files (component files with no scenes.ts entry)
   console.log("  [2/4] Checking for orphan component files...");
-  const sceneDirs = ["dashboard", "auth", "settings"];
+  const sceneDirs = ["dashboard", "auth", "settings", "pricing", "onboarding", "error", "analytics"];
   for (const dir of sceneDirs) {
     const dirPath = path.join(ROOT, "content/scenes", dir);
     if (!fs.existsSync(dirPath)) continue;
