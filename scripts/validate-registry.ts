@@ -31,25 +31,25 @@ const KNOWN_SHADCN_COMPONENTS = new Set([
   "tooltip",
 ]);
 
-// Known npm packages that blocks can use
+// Known npm packages that scenes can use
 const KNOWN_NPM_PACKAGES = new Set(["lucide-react", "recharts"]);
 
-interface BlockEntry {
+interface SceneEntry {
   id: string;
   category: string;
   registryDependencies: string[];
   dependencies: string[];
 }
 
-// Parse blocks.ts to extract block metadata (simple regex parsing — no JSX needed)
-function parseBlocksTs(): BlockEntry[] {
-  const content = fs.readFileSync(path.join(ROOT, "content/blocks.ts"), "utf-8");
-  const entries: BlockEntry[] = [];
+// Parse scenes.ts to extract scene metadata (simple regex parsing — no JSX needed)
+function parseScenesTs(): SceneEntry[] {
+  const content = fs.readFileSync(path.join(ROOT, "content/scenes.ts"), "utf-8");
+  const entries: SceneEntry[] = [];
 
-  const blockRegex =
+  const sceneRegex =
     /\{\s*id:\s*"([^"]+)",\s*category:\s*"([^"]+)"[\s\S]*?registryDependencies:\s*\[([^\]]*)\][\s\S]*?dependencies:\s*\[([^\]]*)\]/g;
 
-  for (const match of content.matchAll(blockRegex)) {
+  for (const match of content.matchAll(sceneRegex)) {
     const id = match[1];
     const category = match[2];
     const registryDeps = match[3]
@@ -116,39 +116,31 @@ function warn(msg: string) {
 function main() {
   console.log("Validating registry...\n");
 
-  const blocksEntries = parseBlocksTs();
-  console.log(`  Found ${blocksEntries.length} block(s) in blocks.ts\n`);
+  const sceneEntries = parseScenesTs();
+  console.log(`  Found ${sceneEntries.length} scene(s) in scenes.ts\n`);
 
   // --- Metadata checks ---
-  console.log("  [1/4] Checking block source files exist...");
-  for (const block of blocksEntries) {
-    const categoryDir =
-      block.category === "dialogs"
-        ? "dialogs"
-        : block.category === "cards"
-          ? "cards"
-          : block.category === "forms"
-            ? "forms"
-            : block.category;
-    const filePath = path.join(ROOT, "content/blocks", categoryDir, `${block.id}.tsx`);
+  console.log("  [1/4] Checking scene source files exist...");
+  for (const scene of sceneEntries) {
+    const filePath = path.join(ROOT, "content/scenes", scene.category, `${scene.id}.tsx`);
     if (!fs.existsSync(filePath)) {
-      error(`Block "${block.id}" registered in blocks.ts but file not found: ${filePath}`);
+      error(`Scene "${scene.id}" registered in scenes.ts but file not found: ${filePath}`);
     }
   }
 
-  // Check for orphan files (component files with no blocks.ts entry)
+  // Check for orphan files (component files with no scenes.ts entry)
   console.log("  [2/4] Checking for orphan component files...");
-  const blockDirs = ["stats", "login", "dialogs", "cards", "forms", "tables", "sidebars"];
-  for (const dir of blockDirs) {
-    const dirPath = path.join(ROOT, "content/blocks", dir);
+  const sceneDirs = ["dashboard", "auth", "settings"];
+  for (const dir of sceneDirs) {
+    const dirPath = path.join(ROOT, "content/scenes", dir);
     if (!fs.existsSync(dirPath)) continue;
     const files = fs
       .readdirSync(dirPath)
       .filter((f) => f.endsWith(".tsx") && !f.startsWith("index"));
     for (const file of files) {
-      const blockId = file.replace(".tsx", "");
-      if (!blocksEntries.find((b) => b.id === blockId)) {
-        warn(`File "${dir}/${file}" has no entry in blocks.ts`);
+      const sceneId = file.replace(".tsx", "");
+      if (!sceneEntries.find((s) => s.id === sceneId)) {
+        warn(`File "${dir}/${file}" has no entry in scenes.ts`);
       }
     }
   }
@@ -159,24 +151,24 @@ function main() {
   if (!fs.existsSync(registryDir)) {
     error("Registry directory public/r/ does not exist. Run npm run generate:registry first.");
   } else {
-    for (const block of blocksEntries) {
-      const jsonPath = path.join(registryDir, `${block.id}.json`);
+    for (const scene of sceneEntries) {
+      const jsonPath = path.join(registryDir, `${scene.id}.json`);
       if (!fs.existsSync(jsonPath)) {
-        error(`Registry JSON not found for "${block.id}": ${jsonPath}`);
+        error(`Registry JSON not found for "${scene.id}": ${jsonPath}`);
       } else {
         // Validate JSON structure
         const json = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
-        if (json.name !== block.id) {
+        if (json.name !== scene.id) {
           error(
-            `Registry JSON name mismatch for "${block.id}": expected "${block.id}", got "${json.name}"`,
+            `Registry JSON name mismatch for "${scene.id}": expected "${scene.id}", got "${json.name}"`,
           );
         }
         if (!json.files || json.files.length === 0) {
-          error(`Registry JSON for "${block.id}" has no files`);
+          error(`Registry JSON for "${scene.id}" has no files`);
         }
-        if (json.files?.[0]?.path !== `components/panes/${block.category}/${block.id}.tsx`) {
+        if (json.files?.[0]?.path !== `components/scenes/${scene.category}/${scene.id}.tsx`) {
           error(
-            `Registry JSON install path mismatch for "${block.id}": expected "components/panes/${block.category}/${block.id}.tsx", got "${json.files?.[0]?.path}"`,
+            `Registry JSON install path mismatch for "${scene.id}": expected "components/scenes/${scene.category}/${scene.id}.tsx", got "${json.files?.[0]?.path}"`,
           );
         }
       }
@@ -185,47 +177,47 @@ function main() {
 
   // --- Import enforcement ---
   console.log("  [4/4] Checking import enforcement...\n");
-  for (const block of blocksEntries) {
-    const categoryDir = block.category;
-    const filePath = path.join(ROOT, "content/blocks", categoryDir, `${block.id}.tsx`);
+  for (const scene of sceneEntries) {
+    const categoryDir = scene.category;
+    const filePath = path.join(ROOT, "content/scenes", categoryDir, `${scene.id}.tsx`);
     if (!fs.existsSync(filePath)) continue;
 
     const { shadcnImports, packageImports, relativeImports } = parseImports(filePath);
 
     // Check shadcn imports match registryDependencies
     for (const imp of shadcnImports) {
-      if (!block.registryDependencies.includes(imp)) {
+      if (!scene.registryDependencies.includes(imp)) {
         error(
-          `${block.id}: imports @/components/ui/${imp} but "${imp}" not in registryDependencies`,
+          `${scene.id}: imports @/components/ui/${imp} but "${imp}" not in registryDependencies`,
         );
       }
     }
 
     // Check package imports match dependencies
     for (const pkg of packageImports) {
-      if (!block.dependencies.includes(pkg)) {
-        error(`${block.id}: imports "${pkg}" but it's not in dependencies`);
+      if (!scene.dependencies.includes(pkg)) {
+        error(`${scene.id}: imports "${pkg}" but it's not in dependencies`);
       }
     }
 
-    // Check for cross-block imports
+    // Check for cross-scene imports
     for (const rel of relativeImports) {
-      if (rel.includes("/blocks/") && !rel.startsWith(`@/content/blocks/${categoryDir}`)) {
-        error(`${block.id}: cross-block import detected: "${rel}"`);
+      if (rel.includes("/scenes/") && !rel.startsWith(`@/content/scenes/${categoryDir}`)) {
+        error(`${scene.id}: cross-scene import detected: "${rel}"`);
       }
     }
 
     // Check registryDependencies are known shadcn components
-    for (const dep of block.registryDependencies) {
+    for (const dep of scene.registryDependencies) {
       if (!KNOWN_SHADCN_COMPONENTS.has(dep)) {
-        warn(`${block.id}: registryDependency "${dep}" is not a known shadcn/ui component`);
+        warn(`${scene.id}: registryDependency "${dep}" is not a known shadcn/ui component`);
       }
     }
 
     // Check dependencies are known npm packages
-    for (const dep of block.dependencies) {
+    for (const dep of scene.dependencies) {
       if (!KNOWN_NPM_PACKAGES.has(dep)) {
-        warn(`${block.id}: dependency "${dep}" is not in the known npm packages list`);
+        warn(`${scene.id}: dependency "${dep}" is not in the known npm packages list`);
       }
     }
   }

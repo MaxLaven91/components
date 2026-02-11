@@ -4,7 +4,7 @@ import { CliCommand } from "@/components/cli-command";
 
 export const metadata = {
   title: "Setup",
-  description: "Add the Components registry to your project and start installing components.",
+  description: "Add the Scenes registry to your project and start installing scenes.",
 };
 
 export default function SetupPage() {
@@ -20,7 +20,7 @@ export default function SetupPage() {
 
       <h1 className="mt-4 text-3xl font-semibold tracking-tight">Setup guide</h1>
       <p className="mt-2 text-muted-foreground">
-        Add the Components registry to your project in two steps.
+        Add the Scenes registry to your project in two steps.
       </p>
 
       <div className="mt-10 space-y-10">
@@ -34,7 +34,7 @@ export default function SetupPage() {
           <div className="mt-4 rounded-lg border bg-muted/50 p-4 font-mono text-sm">
             <pre>{`{
   "registries": {
-    "@components": "https://components.so/r/{name}.json"
+    "@scenes": "https://scenes.so/r/{name}.json"
   }
 }`}</pre>
           </div>
@@ -46,30 +46,30 @@ export default function SetupPage() {
 
         {/* Step 2 */}
         <section>
-          <h2 className="text-lg font-semibold tracking-tight">2. Install a component</h2>
+          <h2 className="text-lg font-semibold tracking-tight">2. Install a scene</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Use the shadcn CLI to install any component. For example:
+            Use the shadcn CLI to install any scene. For example:
           </p>
           <div className="mt-4 space-y-3">
-            <CliCommand command="npx shadcn@latest add @components/stats-01" />
+            <CliCommand command="npx shadcn@latest add @scenes/dashboard-01" />
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            The component and its shadcn/ui dependencies will be installed automatically.
+            The scene and its shadcn/ui dependencies will be installed automatically.
           </p>
         </section>
 
         {/* Browse */}
         <section>
-          <h2 className="text-lg font-semibold tracking-tight">3. Browse components</h2>
+          <h2 className="text-lg font-semibold tracking-tight">3. Browse scenes</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            That&apos;s it. Browse all available components and copy the install command from any component page.
+            That&apos;s it. Browse all available scenes and copy the install command from any scene page.
           </p>
           <div className="mt-4">
             <Link
               href="/"
               className="text-sm font-medium underline underline-offset-4"
             >
-              View all components
+              View all scenes
             </Link>
           </div>
         </section>

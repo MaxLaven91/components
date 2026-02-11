@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "scenes",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -9,7 +9,7 @@
     "start": "next start",
     "generate:registry": "npx tsx scripts/generate-registry.ts",
     "validate:registry": "npx tsx scripts/validate-registry.ts",
-    "validate:block": "npx tsx scripts/validate-block.ts"
+    "validate:scene": "npx tsx scripts/validate-scene.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

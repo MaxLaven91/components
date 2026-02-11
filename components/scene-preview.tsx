@@ -12,7 +12,7 @@ const devices = [
   { id: "mobile", icon: Smartphone, width: "375px", label: "Mobile" },
 ] as const;
 
-export function BlockPreview({ category, blockId }: { category: string; blockId: string }) {
+export function ScenePreview({ category, sceneId }: { category: string; sceneId: string }) {
   const [device, setDevice] = useState<string>("desktop");
   const currentDevice = devices.find((d) => d.id === device) ?? devices[0];
 
@@ -40,7 +40,7 @@ export function BlockPreview({ category, blockId }: { category: string; blockId:
             asChild
             aria-label="Open preview in new tab"
           >
-            <a href={`/preview/${category}/${blockId}`} target="_blank" rel="noopener noreferrer">
+            <a href={`/preview/${category}/${sceneId}`} target="_blank" rel="noopener noreferrer">
               <Maximize2 className="size-3.5" />
             </a>
           </Button>
@@ -48,10 +48,10 @@ export function BlockPreview({ category, blockId }: { category: string; blockId:
       </div>
       <div className="flex justify-center bg-muted/30 p-4">
         <iframe
-          src={`/preview/${category}/${blockId}`}
-          title={`Preview of ${blockId}`}
+          src={`/preview/${category}/${sceneId}`}
+          title={`Preview of ${sceneId}`}
           className="rounded border bg-background transition-[width] duration-200"
-          style={{ width: currentDevice.width, height: "600px" }}
+          style={{ width: currentDevice.width, height: "800px" }}
         />
       </div>
     </div>

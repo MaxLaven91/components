@@ -19,6 +19,6 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@components": "https://components.so/r/{name}.json"
+    "@scenes": "https://scenes.so/r/{name}.json"
   }
 }

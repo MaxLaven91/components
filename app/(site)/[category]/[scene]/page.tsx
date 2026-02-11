@@ -1,40 +1,40 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlockPreview } from "@/components/block-preview";
+import { ScenePreview } from "@/components/scene-preview";
 import { CliCommand } from "@/components/cli-command";
 import { CodeBlock } from "@/components/code-block";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { blocks, categories } from "@/content/blocks";
-import { getBlockSource } from "@/lib/get-block-source";
+import { scenes, categories } from "@/content/scenes";
+import { getSceneSource } from "@/lib/get-scene-source";
 
-type Params = Promise<{ category: string; block: string }>;
+type Params = Promise<{ category: string; scene: string }>;
 
 export function generateStaticParams() {
-  return blocks.map((block) => ({
-    category: block.category,
-    block: block.id,
+  return scenes.map((scene) => ({
+    category: scene.category,
+    scene: scene.id,
   }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const { block: blockId } = await params;
-  const block = blocks.find((b) => b.id === blockId);
-  if (!block) return {};
+  const { scene: sceneId } = await params;
+  const scene = scenes.find((s) => s.id === sceneId);
+  if (!scene) return {};
   return {
-    title: block.name,
-    description: block.description,
+    title: scene.name,
+    description: scene.description,
   };
 }
 
-export default async function BlockPage({ params }: { params: Params }) {
-  const { category: categoryId, block: blockId } = await params;
+export default async function ScenePage({ params }: { params: Params }) {
+  const { category: categoryId, scene: sceneId } = await params;
 
-  const block = blocks.find((b) => b.id === blockId);
+  const scene = scenes.find((s) => s.id === sceneId);
   const category = categories.find((c) => c.id === categoryId);
-  if (!block || !category) notFound();
+  if (!scene || !category) notFound();
 
-  const source = getBlockSource(blockId);
+  const source = getSceneSource(sceneId);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
@@ -51,15 +51,15 @@ export default async function BlockPage({ params }: { params: Params }) {
           {category.label}
         </Link>
         <span className="mx-2 text-muted-foreground">/</span>
-        <span>{block.name}</span>
+        <span>{scene.name}</span>
       </nav>
 
       {/* Header */}
       <div className="mt-6">
-        <h1 className="text-3xl font-semibold tracking-tight">{block.name}</h1>
-        <p className="mt-1 text-muted-foreground">{block.description}</p>
+        <h1 className="text-3xl font-semibold tracking-tight">{scene.name}</h1>
+        <p className="mt-1 text-muted-foreground">{scene.description}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
-          {block.tags.map((tag) => (
+          {scene.tags.map((tag) => (
             <Badge key={tag} variant="outline" className="font-normal">
               {tag}
             </Badge>
@@ -69,7 +69,7 @@ export default async function BlockPage({ params }: { params: Params }) {
 
       {/* Install command */}
       <div className="mt-8">
-        <CliCommand command={`npx shadcn@latest add @components/${block.id}`} />
+        <CliCommand command={`npx shadcn@latest add @scenes/${scene.id}`} />
       </div>
 
       {/* Preview + Code */}
@@ -80,21 +80,21 @@ export default async function BlockPage({ params }: { params: Params }) {
             <TabsTrigger value="code">Code</TabsTrigger>
           </TabsList>
           <TabsContent value="preview" className="mt-4">
-            <BlockPreview category={categoryId} blockId={blockId} />
+            <ScenePreview category={categoryId} sceneId={sceneId} />
           </TabsContent>
           <TabsContent value="code" className="mt-4">
-            <CodeBlock code={source} filename={`${block.id}.tsx`} />
+            <CodeBlock code={source} filename={`${scene.id}.tsx`} />
           </TabsContent>
         </Tabs>
       </div>
 
       {/* Dependencies */}
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
-        {block.registryDependencies.length > 0 && (
+        {scene.registryDependencies.length > 0 && (
           <div>
             <h3 className="text-sm font-medium">shadcn/ui components</h3>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {block.registryDependencies.map((dep) => (
+              {scene.registryDependencies.map((dep) => (
                 <Badge key={dep} variant="secondary" className="font-normal">
                   {dep}
                 </Badge>
@@ -102,11 +102,11 @@ export default async function BlockPage({ params }: { params: Params }) {
             </div>
           </div>
         )}
-        {block.dependencies.length > 0 && (
+        {scene.dependencies.length > 0 && (
           <div>
             <h3 className="text-sm font-medium">npm packages</h3>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {block.dependencies.map((dep) => (
+              {scene.dependencies.map((dep) => (
                 <Badge key={dep} variant="secondary" className="font-normal">
                   {dep}
                 </Badge>

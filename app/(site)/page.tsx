@@ -3,7 +3,7 @@ import { CliCommand } from "@/components/cli-command";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { blocks, categories } from "@/content/blocks";
+import { scenes, categories } from "@/content/scenes";
 
 export default function Home() {
   return (
@@ -11,18 +11,18 @@ export default function Home() {
       {/* Hero */}
       <section className="flex flex-col items-center text-center">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Clean, modern UI components
+          Polished UI scenes for SaaS
         </h1>
         <p className="mt-4 max-w-lg text-lg text-muted-foreground">
-          Open-source copy-paste components for React. Browse, preview, and install with the shadcn
-          CLI.
+          Full-page, production-ready UI compositions for React. Browse, preview, and install with
+          the shadcn CLI.
         </p>
         <div className="mt-8 flex gap-3">
           <Button size="lg" asChild>
-            <a href="#categories">Browse components</a>
+            <a href="#categories">Browse scenes</a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href="https://github.com/MaxLaven91/components" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/MaxLaven91/scenes" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </Button>
@@ -33,7 +33,7 @@ export default function Home() {
       <section className="mx-auto mt-24 max-w-xl">
         <h2 className="text-center text-sm font-medium text-muted-foreground">Get started</h2>
         <div className="mt-4 space-y-3">
-          <CliCommand command="npx shadcn@latest add @components/stats-01" />
+          <CliCommand command="npx shadcn@latest add @scenes/dashboard-01" />
         </div>
         <p className="mt-3 text-center text-sm text-muted-foreground">
           Add the registry to your{" "}
@@ -48,13 +48,13 @@ export default function Home() {
       <section id="categories" className="mt-24 scroll-mt-20">
         <h2 className="text-2xl font-semibold tracking-tight">Categories</h2>
         <p className="mt-1 text-muted-foreground">
-          {blocks.length} components across {categories.length} categories.
+          {scenes.length} scenes across {categories.length} categories.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories
             .sort((a, b) => a.sort - b.sort)
             .map((category) => {
-              const count = blocks.filter((b) => b.category === category.id).length;
+              const count = scenes.filter((s) => s.category === category.id).length;
               return (
                 <Link key={category.id} href={`/${category.id}`} className="h-full">
                   <Card className="h-full shadow-none transition-colors duration-150 ease-out hover:bg-muted/50 motion-reduce:transition-none">
@@ -86,7 +86,7 @@ export default function Home() {
           </a>
           . Open source on{" "}
           <a
-            href="https://github.com/MaxLaven91/components"
+            href="https://github.com/MaxLaven91/scenes"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4"

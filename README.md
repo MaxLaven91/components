@@ -1,96 +1,50 @@
-# Components
+# Scenes
 
-Clean, modern UI components for React. Open-source copy-paste components built with [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS.
+Full-page, production-ready UI compositions for SaaS. Built with [shadcn/ui](https://ui.shadcn.com) and Tailwind CSS. Not individual components — complete pages with polished interactions.
 
-Browse and preview at [components.so](https://components.so).
+Browse and preview at [scenes.so](https://scenes.so).
 
 ## Quick Start
 
 ### 1. Add the registry
 
-Add the Components registry to your `components.json`:
+Add the Scenes registry to your `components.json`:
 
 ```json
 {
   "registries": {
-    "@components": "https://components.so/r/{name}.json"
+    "@scenes": "https://scenes.so/r/{name}.json"
   }
 }
 ```
 
-### 2. Install a component
+### 2. Install a scene
 
 ```bash
-npx shadcn@latest add @components/stats-01
+npx shadcn@latest add @scenes/dashboard-01
 ```
 
-The component installs to `components/panes/<category>/<block>.tsx` in your project.
+The scene installs to `components/scenes/<category>/<scene>.tsx` in your project.
 
-## Available Components
+## Available Scenes
 
-### Stats & Metrics
+### Dashboard
 
-| Component | Description |
-|-----------|-------------|
-| `stats-01` | Simple stat cards with label, value, and change badge |
-| `stats-02` | Stat cards with inline sparkline charts |
-| `stats-03` | KPI grid with icons and progress bars |
-| `stats-04` | Comparison cards (this period vs last period) |
-| `stats-05` | Revenue overview card with bar chart and period tabs |
+| Scene | Description |
+|-------|-------------|
+| `dashboard-01` | Complete SaaS dashboard with collapsible sidebar, stat cards, revenue chart, and orders table |
 
-### Login & Signup
+### Authentication
 
-| Component | Description |
-|-----------|-------------|
-| `login-01` | Simple centered login form |
-| `login-02` | Social login with Google/GitHub buttons |
-| `login-03` | Split screen login with branded panel |
-| `login-04` | Magic link login with success state |
-| `login-05` | Multi-step signup with progress indicator |
+| Scene | Description |
+|-------|-------------|
+| `auth-01` | Branded split-screen login and signup with social OAuth, magic link, and animated state transitions |
 
-### Dialogs
+### Settings
 
-| Component | Description |
-|-----------|-------------|
-| `dialog-01` | Confirmation dialog with destructive action |
-| `dialog-02` | Form dialog for creating items |
-| `dialog-03` | Command palette with search and keyboard nav |
-| `dialog-04` | Mobile-friendly drawer with filters |
-
-### Cards
-
-| Component | Description |
-|-----------|-------------|
-| `card-01` | Product card with image, price, and add to cart |
-| `card-02` | User profile card with avatar and social links |
-| `card-03` | Pricing card with monthly/annual toggle |
-
-### Forms
-
-| Component | Description |
-|-----------|-------------|
-| `form-01` | Contact form with subject dropdown and message |
-| `form-02` | Settings form with avatar, toggles, and danger zone |
-| `form-03` | Inline editable form with display/edit modes |
-
-### Tables
-
-| Component | Description |
-|-----------|-------------|
-| `table-01` | Clean minimal table with formatted numbers |
-| `table-02` | Data table with status badges and row action menus |
-| `table-03` | Sortable columns with click headers and arrow indicators |
-| `table-04` | Search input and category filter dropdown to narrow rows |
-| `table-05` | Search, pagination, and bulk checkbox selection |
-
-### Sidebars
-
-| Component | Description |
-|-----------|-------------|
-| `sidebar-01` | Navigation sidebar with icons and active state |
-| `sidebar-02` | Grouped sections with headers and count badges |
-| `sidebar-03` | Collapsible toggle between full and icon-only mode |
-| `sidebar-04` | User profile avatar at top with nav and logout |
+| Scene | Description |
+|-------|-------------|
+| `settings-01` | Full settings page with tabs for profile, notifications, billing, and danger zone |
 
 ## Requirements
 
@@ -112,12 +66,12 @@ npm run dev
 | `npm run dev` | Start dev server with Turbopack |
 | `npm run build` | Generate registry + production build |
 | `npm run generate:registry` | Generate registry JSON files |
-| `npm run validate:registry` | Validate all blocks and registry |
-| `npm run validate:block <id>` | Validate a single block |
+| `npm run validate:registry` | Validate all scenes and registry |
+| `npm run validate:scene <id>` | Validate a single scene |
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new components.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new scenes.
 
 ## License
 

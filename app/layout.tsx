@@ -15,29 +15,29 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Components — Clean, modern UI components",
-    template: "%s — Components",
+    default: "Scenes — Polished UI scenes for SaaS",
+    template: "%s — Scenes",
   },
   description:
-    "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
-  metadataBase: new URL("https://components.so"),
+    "Full-page, production-ready UI compositions for React. Browse, preview, and install with the shadcn CLI.",
+  metadataBase: new URL("https://scenes.so"),
   openGraph: {
-    title: "Components — Clean, modern UI components",
+    title: "Scenes — Polished UI scenes for SaaS",
     description:
-      "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
-    url: "https://components.so",
-    siteName: "Components",
+      "Full-page, production-ready UI compositions for React. Browse, preview, and install with the shadcn CLI.",
+    url: "https://scenes.so",
+    siteName: "Scenes",
     locale: "en_US",
     type: "website",
     images: [
-      { url: "/og.png", width: 1200, height: 630, alt: "Components — Clean, modern UI components" },
+      { url: "/og.png", width: 1200, height: 630, alt: "Scenes — Polished UI scenes for SaaS" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Components — Clean, modern UI components",
+    title: "Scenes — Polished UI scenes for SaaS",
     description:
-      "Open-source copy-paste UI components for React. Browse, preview, and install with the shadcn CLI.",
+      "Full-page, production-ready UI compositions for React. Browse, preview, and install with the shadcn CLI.",
   },
   robots: {
     index: true,

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { blocks, categories } from "@/content/blocks";
+import { scenes, categories } from "@/content/scenes";
 
 type Params = Promise<{ category: string }>;
 
@@ -26,7 +26,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
   const category = categories.find((c) => c.id === categoryId);
   if (!category) notFound();
 
-  const categoryBlocks = blocks.filter((b) => b.category === categoryId);
+  const categoryScenes = scenes.filter((s) => s.category === categoryId);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
@@ -41,14 +41,14 @@ export default async function CategoryPage({ params }: { params: Params }) {
       <p className="mt-1 text-muted-foreground">{category.description}</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {categoryBlocks.map((block) => (
-          <Link key={block.id} href={`/${categoryId}/${block.id}`} className="h-full">
+        {categoryScenes.map((scene) => (
+          <Link key={scene.id} href={`/${categoryId}/${scene.id}`} className="h-full">
             <Card className="h-full shadow-none transition-colors duration-150 ease-out hover:bg-muted/50 motion-reduce:transition-none">
               <CardHeader>
-                <CardTitle className="text-base">{block.name}</CardTitle>
-                <CardDescription>{block.description}</CardDescription>
+                <CardTitle className="text-base">{scene.name}</CardTitle>
+                <CardDescription>{scene.description}</CardDescription>
                 <div className="flex flex-wrap gap-1 pt-2">
-                  {block.tags.slice(0, 3).map((tag) => (
+                  {scene.tags.slice(0, 3).map((tag) => (
                     <Badge key={tag} variant="outline" className="text-xs font-normal">
                       {tag}
                     </Badge>
